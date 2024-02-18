@@ -153,8 +153,36 @@ class NeedlemanWunsch:
             self._gapB_matrix[0][j] = gap_open_penalty + (j * gap_extend_penalty)
 
         # TODO: Implement global alignment here
-        pass      		
-        		    
+
+        # construct alighment matrix
+            
+        for i in range(1, 1 + m):
+            for j in range(1, 1 +_n):
+                self._align_matrix[i][j] = max(
+                    self._align_matrix[i - 1][j - 1] + self.sub_dict[(seqA[j - 1], seqB[i - 1])],
+                    self._gapA_matrix[i - 1][j - 1] + self.sub_dict[(seqA[j - 1], seqB[i - 1])],
+                    self._gapB_matrix[i - 1][j - 1] + self.sub_dict[(seqA[j - 1], seqB[i - 1])]
+                )
+
+        # construct gapA matrix
+        for i in range(1, 1 + m):
+            for j in range(1, 1 +_n):
+                self._gapA_matrix[i][j] = max(
+                    (self._align_matrix[i - 1][j] + gap_open_penalty + gap_extend_penalty),
+                    (self._gapA_matrix[i - 1][j] + gap_extend_penalty)
+                )
+                
+        # construct gapB matrix
+        for i in range(1, 1 + m):
+            for j in range(1, 1 +_n):
+                self._gaB_matrix[i][j] = max(
+                    (self._align_matrix[i - 1][j] + gap_open_penalty + gap_extend_penalty),
+                    (self._gapB_matrix[i - 1][j] + gap_extend_penalty)
+                )
+                
+        # construct score matrix
+
+
         return self._backtrace()
 
     def _backtrace(self) -> Tuple[float, str, str]:
