@@ -140,7 +140,18 @@ class NeedlemanWunsch:
     
         self._align_matrix = self._score_matrix = self._gapA_matrix = self._gapB_matrix = np.zeros((m + 1, n + 1))
 
-        
+        # initialize starting values including gap penalties
+
+        for i in range(1, 1 + m):
+            self._align_matrix[i][0] = -np.inf
+            self._gapA_matrix[i][0] = gap_open_penalty + (i * gap_extend_penalty)
+            self._gapB_matrix[i][0] = -np.inf
+
+        for j in range(1, 1 + n):
+            self._align_matrix[0][j] = -np.inf
+            self._gapA_matrix[0][j] = -np.inf
+            self._gapB_matrix[0][j] = gap_open_penalty + (j * gap_extend_penalty)
+
         # TODO: Implement global alignment here
         pass      		
         		    
