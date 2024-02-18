@@ -180,7 +180,7 @@ class NeedlemanWunsch:
                 )
                 
         # construct score matrix from max of alignment, gapa, amd gapb matrices
-                self._score_matrix = max(self._align_matrix[i][j], self._gapA_matrix[i][j], self._gapB_matrix[i][j])
+                self._score_matrix[i][j] = max(self._align_matrix[i][j], self._gapA_matrix[i][j], self._gapB_matrix[i][j])
 
 
         return self._backtrace()
@@ -212,7 +212,7 @@ class NeedlemanWunsch:
         
         # 0 is a match
                 if self._score_matrix[i][j] == self._align_matrix[i][j]:
-                    #traceback_matrix[i][j] = 0
+                    traceback_matrix[i][j] = 0
                     raise ValueError("Iteration through traceback matrix has failed.")
 
 
