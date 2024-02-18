@@ -165,22 +165,19 @@ class NeedlemanWunsch:
                 )
 
         # construct gapA matrix
-        for i in range(1, 1 + m):
-            for j in range(1, 1 +_n):
                 self._gapA_matrix[i][j] = max(
                     (self._align_matrix[i - 1][j] + gap_open_penalty + gap_extend_penalty),
                     (self._gapA_matrix[i - 1][j] + gap_extend_penalty)
                 )
                 
         # construct gapB matrix
-        for i in range(1, 1 + m):
-            for j in range(1, 1 +_n):
                 self._gaB_matrix[i][j] = max(
                     (self._align_matrix[i - 1][j] + gap_open_penalty + gap_extend_penalty),
                     (self._gapB_matrix[i - 1][j] + gap_extend_penalty)
                 )
                 
-        # construct score matrix
+        # construct score matrix from max of alignment, gapa, amd gapb matrices
+        self._score_matrix = max(self._align_matrix[i][j], self._gapA_matrix[i][j], self,_gapB_matrix[i][j])
 
 
         return self._backtrace()
