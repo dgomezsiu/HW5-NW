@@ -175,8 +175,8 @@ class NeedlemanWunsch:
                 
         # construct gapB matrix
                 self._gapB_matrix[i][j] = max(
-                    (self._align_matrix[i - 1][j] + gap_open_penalty + gap_extend_penalty),
-                    (self._gapB_matrix[i - 1][j] + gap_extend_penalty)
+                    (self._align_matrix[i][j - 1] + gap_open_penalty + gap_extend_penalty),
+                    (self._gapB_matrix[i][j - 1] + gap_extend_penalty)
                 )
                 
         # construct score matrix from max of alignment, gapa, amd gapb matrices
