@@ -276,7 +276,7 @@ class NeedlemanWunsch:
         # if there is a gap, add open penalty AND extend penalty if the gap is starting
         # otherwise only add extend penalty
             else:
-                if self.seqA_align[i] == '-' or self.seqA_align[i] == '-':
+                if self.seqA_align[i] == '-' or self.seqB_align[i] == '-':
                     if num_gaps == 0:
                         self.alignment_score += self.gap_open + self.gap_extend
                         num_gaps += 1
