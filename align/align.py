@@ -171,7 +171,7 @@ class NeedlemanWunsch:
                 )
                 
         # construct gapB matrix
-                self._gaB_matrix[i][j] = max(
+                self._gapB_matrix[i][j] = max(
                     (self._align_matrix[i - 1][j] + gap_open_penalty + gap_extend_penalty),
                     (self._gapB_matrix[i - 1][j] + gap_extend_penalty)
                 )
