@@ -196,7 +196,16 @@ class NeedlemanWunsch:
          	(alignment score, seqA alignment, seqB alignment) : Tuple[float, str, str]
          		the score and corresponding strings for the alignment of seqA and seqB
         """
-        pass
+        # initialize a traceback matrix
+
+        # iterate through traceback matrix
+        # 0 is a match
+        # -1 is a gap in A
+        # 1 is a gap in B
+
+        # trace the sequence through the matrix
+
+        # calculate the alignment score
 
         return (self.alignment_score, self.seqA_align, self.seqB_align)
 
