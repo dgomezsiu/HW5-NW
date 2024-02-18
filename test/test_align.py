@@ -22,6 +22,7 @@ def test_nw_alignment():
 
     assert s2_s1_align == '-MQR'
     
+    print(nw._align_matrix)
     assert np.all(nw._align_matrix ==
         np.transpose([
             [0, -np.inf, -np.inf, -np.inf],
