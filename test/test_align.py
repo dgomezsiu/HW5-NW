@@ -23,6 +23,8 @@ def test_nw_alignment():
     assert s2_s1_align == 'M-QR'
     
     print(nw._align_matrix)
+    print(nw._gapA_matrix)
+    print(nw._gapB_matrix)
     assert np.all(nw._align_matrix ==
         np.transpose([
             [0, -np.inf, -np.inf, -np.inf],
