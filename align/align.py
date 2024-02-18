@@ -128,7 +128,16 @@ class NeedlemanWunsch:
         
         # TODO: Initialize matrix private attributes for use in alignment
         # create matrices for alignment scores, gaps, and backtracing
-        pass
+
+        # initialize matrix private attributes
+
+        gap_open_penalty = self.gap_open
+        gap_extend_penalty = self.gap_extend
+        n = len(self._seqA)
+        m = len(self._seqB)
+
+        # initialize matrices for alighment score, gap, and backtrace
+    
 
         
         # TODO: Implement global alignment here
