@@ -251,14 +251,16 @@ class NeedlemanWunsch:
         
         # terminate traceback when sequence A or B ends
         if i > 0 and j == 0:
-            self.seqA_align += '-'
-            self.seqB_align += self._seqB[i - 1]
-            i -= 1
+            while i > 0:
+                self.seqA_align += '-'
+                self.seqB_align += self._seqB[j - 1]
+                i -= 1
 
         if i == 0 and j > 0:
-            self.seqA_align += self._seqA[j - 1]
-            self.seqB_align += '-'
-            j -= 1
+            while j > 0:
+                self.seqA_align += self._seqA[i - 1]
+                self.seqB_align += '-'
+                j -= 1
 
         # invert the traceback to original sequence orientation
         self.seqA_align = self.seqA_align[::-1]
