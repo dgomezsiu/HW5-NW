@@ -42,9 +42,9 @@ def main():
     # TODO print all of the alignment score between each species BRD2 and human BRD2
     # using gap opening penalty of -10 and a gap extension penalty of -1 and BLOSUM62 matrix
     print('Gallus gallus: ', gg_hs_align, " ", gg_score)
-    print('Mus musculus: ', mm_hs_align, " ", mm_score))
-    print('Balaeniceps rex: ', br_hs_align, " ", br_score))
-    print('Tursiops truncatus: ', tt_hs_align, " ", tt_score))
+    print('Mus musculus: ', mm_hs_align, " ", mm_score)
+    print('Balaeniceps rex: ', br_hs_align, " ", br_score)
+    print('Tursiops truncatus: ', tt_hs_align, " ", tt_score)
     
 
 if __name__ == "__main__":
