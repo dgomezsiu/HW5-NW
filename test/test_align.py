@@ -26,7 +26,7 @@ def test_nw_alignment():
     print(nw._gapA_matrix[0])
     print(nw._gapB_matrix[0])
     print(type(nw._align_matrix[0][0]))
-    assert nw._align_matrix[0] == [0, -np.inf, -np.inf, -np.inf, -np.inf]
+    assert np.all(nw._align_matrix[0] == [0, -np.inf, -np.inf, -np.inf, -np.inf])
 
     assert np.all(nw._gapA_matrix == [
             [-10, -np.inf, -np.inf, -np.inf],
