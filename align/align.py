@@ -209,7 +209,7 @@ class NeedlemanWunsch:
         
         # 0 is a match
                 if self._score_matrix[i][j] == self._align_matrix[i][j]:
-                    traceback_matrix[i],[j] = 0
+                    traceback_matrix[i][j] = 0
 
         # -1 is a gap in A
                 elif self._score_matrix[i][j] == self._gapA_matrix[i][j]:
