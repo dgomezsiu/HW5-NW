@@ -198,10 +198,30 @@ class NeedlemanWunsch:
         """
         # initialize a traceback matrix
 
+        n = len(self._seqA)
+        m = len(self._seqB)
+
+        traceback_matrix = np.ones((m + 1, n + 1)) * -np.inf
+
         # iterate through traceback matrix
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+        
         # 0 is a match
+                if self._score_matrix[i][j] == self._align_matrix[i][j]:
+                    traceback_matrix[i],[j] = 0
+
         # -1 is a gap in A
+                elif self._score_matrix[i][j] == self._gapA_matrix[i][j]:
+                    traceback_matrix[i][j] = -1
+
         # 1 is a gap in B
+                elif self._score_matrix[i][j] == self._gapB_matrix[i][j]:
+                    traceback_matrix[i][j] = 1
+
+        # if function breaks then raise error
+                else:
+                    raise ValueError("Iteration through traceback matrix has failed.")
 
         # trace the sequence through the matrix
 
