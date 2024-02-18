@@ -177,7 +177,7 @@ class NeedlemanWunsch:
                 )
                 
         # construct score matrix from max of alignment, gapa, amd gapb matrices
-        self._score_matrix = max(self._align_matrix[i][j], self._gapA_matrix[i][j], self,_gapB_matrix[i][j])
+                self._score_matrix = max(self._align_matrix[i][j], self._gapA_matrix[i][j], self,_gapB_matrix[i][j])
 
 
         return self._backtrace()
