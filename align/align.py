@@ -147,7 +147,7 @@ class NeedlemanWunsch:
 
         for i in range(1, 1 + m):
             self._align_matrix[i][0] = -np.inf
-            self._gapA_matrix[i][0] = gap_open_penalty + (i * gap_ext_penalty)
+            self._gapA_matrix[i][0] = gap_open_penalty + (i * gap_extend_penalty)
             self._gapB_matrix[i][0] = -np.inf
 
         for j in range(1, 1 + n):
