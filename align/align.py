@@ -249,16 +249,16 @@ class NeedlemanWunsch:
                 self.seqB_align += '-'
                 j -= 1
         
-        # terminate traceback when sequence A or B ends
+        # terminate traceback when sequence A or B endsre
         if i > 0 and j == 0:
             while i > 0:
                 self.seqA_align += '-'
-                self.seqB_align += self._seqB[j - 1]
+                self.seqB_align += self._seqB[i - 1]
                 i -= 1
 
         if i == 0 and j > 0:
             while j > 0:
-                self.seqA_align += self._seqA[i - 1]
+                self.seqA_align += self._seqA[j - 1]
                 self.seqB_align += '-'
                 j -= 1
 
