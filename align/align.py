@@ -138,7 +138,10 @@ class NeedlemanWunsch:
 
         # initialize matrices for alighment score, gap, and backtrace all with same dimension
     
-        self._align_matrix = self._score_matrix = self._gapA_matrix = self._gapB_matrix = np.zeros((m + 1, n + 1))
+        self._align_matrix = np.zeros((m + 1, n + 1))
+        self._score_matrix = np.zeros((m + 1, n + 1))
+        self._gapA_matrix = np.zeros((m + 1, n + 1))
+        self._gapB_matrix = np.zeros((m + 1, n + 1))
 
         # initialize starting values including gap penalties
 
