@@ -147,7 +147,7 @@ class NeedlemanWunsch:
 
         for i in range(1, 1 + m):
             self._align_matrix[i][0] = -np.inf
-            self._gapA_matrix[i][0] = gap_open_penalty + (i * gap_extend_penalty)
+            self._gapA_matrix[i][0] = gap_open_penalty + (i * gap_ext_penalty)
             self._gapB_matrix[i][0] = -np.inf
 
         for j in range(1, 1 + n):
@@ -212,7 +212,9 @@ class NeedlemanWunsch:
         
         # 0 is a match
                 if self._score_matrix[i][j] == self._align_matrix[i][j]:
-                    traceback_matrix[i][j] = 0
+                    #traceback_matrix[i][j] = 0
+                    raise ValueError("Iteration through traceback matrix has failed.")
+
 
         # -1 is a gap in A
                 elif self._score_matrix[i][j] == self._gapA_matrix[i][j]:
