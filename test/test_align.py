@@ -22,7 +22,7 @@ def test_nw_alignment():
 
     assert s2_s1_align == '-MQR'
     
-    assert np.all(nw._align_matrix == [
+    assert np.all(nw._align_matrix ==
         [
             [0, -np.inf, -np.inf, -np.inf],
             [-np.inf, 5, -6, -7],
@@ -30,7 +30,7 @@ def test_nw_alignment():
             [-np.inf, -7, -1, 5],
             [-np.inf, -8, -6, 4],
         ]
-    ])
+        )
 
     assert np.all(nw._gapA_matrix == [
             [-10, -np.inf, -np.inf, -np.inf],
@@ -59,7 +59,11 @@ def test_nw_backtrace():
     """
     seq3, _ = read_fasta("./data/test_seq3.fa")
     seq4, _ = read_fasta("./data/test_seq4.fa")
-    pass
+
+    nw = NeedlemanWunsch("./substitution_matrices/BLOSUM62.mat", -10.0, -1.0)
+    score, s3_s4_align, s4_s3_align = nw.align(seq3, seq4)
+    
+    assert score = 17
 
 
 
