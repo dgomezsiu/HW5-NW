@@ -25,31 +25,28 @@ def test_nw_alignment():
     print(nw._align_matrix)
     print(nw._gapA_matrix)
     print(nw._gapB_matrix)
-    print(type(nw._align_matrix[0][0]))
+
     assert np.all(nw._align_matrix == [
         [0, -np.inf, -np.inf, -np.inf, -np.inf],
         [-np.inf, 5, -12, -12, -14],
         [-np.inf, -11, 4, -1, -6],
         [-np.inf, -13, -8, 5, 4]
         ])
+    
+    assert np.all(nw._gapA_matrix== [
+        [0, -np.inf, -np.inf, -np.inf, -np.inf],
+        [-11, -np.inf, -np.inf, -np.inf, -np.inf],
+        [-12, -6, -23, -23, -25],
+        [-13, -7, -7, -12, -17]
+        ])
 
-    assert np.all(nw._gapA_matrix == [
-            [-10, -np.inf, -np.inf, -np.inf],
-            [-11, -12, -6, -7],
-            [-12, -13, -14, -7],
-            [-13, -14, -15, -12],
-            [-14, -15, -16, -17],
-        ]
-    )
-
-    assert np.all(nw._gapB_matrix == [
-            [-10, -11, -12, -13],
-            [-np.inf, -12, -13, -14],
-            [-np.inf, -6, -14, -15],
-            [-np.inf, -7, -7, -16],
-            [-np.inf, -8, -8, -6],
-        ]
-    )
+    assert np.all(nw._align_matrix == [
+        [0, -11, -12, -13, -14],
+        [-np.inf, -np.inf, -6, -7, -8],
+        [-np.inf, -np.inf, -22, -7, -8],
+        [-np.inf, -np.inf, -24, -19, -6]
+        ])
+    
 def test_nw_backtrace():
     """
     TODO: Write your unit test for NW backtracing
