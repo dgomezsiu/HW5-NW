@@ -136,8 +136,9 @@ class NeedlemanWunsch:
         n = len(self._seqA)
         m = len(self._seqB)
 
-        # initialize matrices for alighment score, gap, and backtrace
+        # initialize matrices for alighment score, gap, and backtrace all with same dimension
     
+        self._align_matrix = self._score_matrix = self._gapA_matrix = self._gapB_matrix = np.zeros((m + 1, n + 1))
 
         
         # TODO: Implement global alignment here
