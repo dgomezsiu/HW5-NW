@@ -262,7 +262,30 @@ class NeedlemanWunsch:
         self.seqB_align = self.seqB_align[::-1]
 
         # calculate the alignment score
+        num_gaps = 0
+        for i in range(min(len(self.seqA_align), len(slf.seqB_align))):
+        
+        # if A and B match, add subdict alighment score and reset num_gaps
+            if self.seqA_align[i] == self.seqB_align[i]:
+                self.alignment_score += self.sub_dict[(self.seqA_align[i], self.seqB_align[i])]
+                num_gaps = 0
+        
+        # if there is a gap, add open penalty AND extend penalty if the gap is starting
+        # otherwise only add extend penalty
+            else:
+                if self.seqA_align[i] == '-' or self.seqA_align[i] == '-':
+                    if num_gaps == 0:
+                        self.alignment_score += self.gap_open + self.gap_extend
+                        num_gaps += 1
+                    else:
+                        self.alignment_score += self.gap_extend
 
+        # if there is a mismatch, add mismatch penalty and reset num_gaps
+                else:
+                    self.alignment_score += self.sub_dict[(self.seqA_align[i], self.seqB_align[i])]
+                    num_gaps = 0
+
+        # return self alignment score, seqA and seqB
         return (self.alignment_score, self.seqA_align, self.seqB_align)
 
 
