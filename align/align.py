@@ -223,7 +223,43 @@ class NeedlemanWunsch:
                 else:
                     raise ValueError("Iteration through traceback matrix has failed.")
 
-        # trace the sequence through the matrix
+        # trace the sequence through the matrix and produce aligned seqA and seqB
+        while i > 0 and j > 0:
+            trace = traceback_matrix[i][j]
+        
+        # add match to both sequences
+            if trace == 0:
+                self.seqA_align += self._seqA[j - 1]
+                self.seqB_align += self._seqB[i - 1]
+                i -= 1
+                j -= 1
+
+        # add gap in A
+            elif trace == -1:
+                self.seqA_align += '-'
+                self.seqB_align += self._seqB[i - 1]
+                i -= 1
+
+        # add gap in B
+            elif trace == 1:
+                self.seqA_align += self._seqA[j - 1]
+                self.seqB_align += '-'
+                j -= 1
+        
+        # terminate traceback when sequence A or B ends
+        if i > 0 and j == 0:
+            self.seqA_align += '-'
+            self.seqB_align += self._seqB[i - 1]
+            i -= 1
+
+        if i == 0 and j > 0:
+            self.seqA_align += self._seqA[j - 1]
+            self.seqB_align += '-'
+            j -= 1
+
+        # invert the traceback to original sequence orientation
+        self.seqA_align = self.seqA_align[::-1]
+        self.seqB_align = self.seqB_align[::-1]
 
         # calculate the alignment score
 
