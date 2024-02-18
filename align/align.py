@@ -157,7 +157,7 @@ class NeedlemanWunsch:
         # construct alighment matrix
             
         for i in range(1, 1 + m):
-            for j in range(1, 1 +_n):
+            for j in range(1, 1 + n):
                 self._align_matrix[i][j] = max(
                     self._align_matrix[i - 1][j - 1] + self.sub_dict[(seqA[j - 1], seqB[i - 1])],
                     self._gapA_matrix[i - 1][j - 1] + self.sub_dict[(seqA[j - 1], seqB[i - 1])],
@@ -177,7 +177,7 @@ class NeedlemanWunsch:
                 )
                 
         # construct score matrix from max of alignment, gapa, amd gapb matrices
-                self._score_matrix = max(self._align_matrix[i][j], self._gapA_matrix[i][j], self,_gapB_matrix[i][j])
+                self._score_matrix = max(self._align_matrix[i][j], self._gapA_matrix[i][j], self._gapB_matrix[i][j])
 
 
         return self._backtrace()
@@ -263,7 +263,7 @@ class NeedlemanWunsch:
 
         # calculate the alignment score
         num_gaps = 0
-        for i in range(min(len(self.seqA_align), len(slf.seqB_align))):
+        for i in range(min(len(self.seqA_align), len(self.seqB_align))):
         
         # if A and B match, add subdict alighment score and reset num_gaps
             if self.seqA_align[i] == self.seqB_align[i]:
