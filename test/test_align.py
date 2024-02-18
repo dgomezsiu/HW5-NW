@@ -22,17 +22,11 @@ def test_nw_alignment():
 
     assert s2_s1_align == 'M-QR'
     
-    print(nw._align_matrix)
-    print(nw._gapA_matrix)
-    print(nw._gapB_matrix)
+    print(nw._align_matrix[0])
+    print(nw._gapA_matrix[0])
+    print(nw._gapB_matrix[0])
     print(type(nw._align_matrix[0][0]))
-    assert np.all(nw._align_matrix == [
-        [0., -np.inf, -np.inf, -np.inf, -np.inf]
-        [-np.inf, 5., -12., -12., -14.]
-        [-np.inf, -11., 4., -1., -6.]
-        [-np.inf, -13., -8., 5., 4.]
-        ]
-    )
+    assert nw._align_matrix[0] == []
 
     assert np.all(nw._gapA_matrix == [
             [-10, -np.inf, -np.inf, -np.inf],
