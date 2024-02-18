@@ -65,6 +65,8 @@ def test_nw_backtrace():
     score, s3_s4_align, s4_s3_align = nw.align(seq3, seq4)
     
     assert score == 17
+    assert s3_s4_align == 'MAVHQLIRRP'
+    assert s4_s3_align == 'M---QLIRRP'
 
 
 
