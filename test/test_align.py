@@ -20,7 +20,7 @@ def test_nw_alignment():
 
     assert s1_s2_align == 'MYQR'
 
-    assert s2_s1_align == 'M-QR'
+    assert s2_s1_align == '-MQR'
     
     assert np.all(nw._align_matrix == [
         [
