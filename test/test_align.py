@@ -22,7 +22,33 @@ def test_nw_alignment():
 
     assert s2_s1_align == 'M-QR'
     
+    assert np.all(nw._align_matrix == [
+        [
+            [0, -np.inf, -np.inf, -np.inf],
+            [-np.inf, 5, -6, -7],
+            [-np.inf, -6, 4, -7],
+            [-np.inf, -7, -1, 5],
+            [-np.inf, -8, -6, 4],
+        ]
+    ])
 
+    assert np.all(nw._gapA_matrix == [
+            [-10, -np.inf, -np.inf, -np.inf],
+            [-11, -12, -6, -7],
+            [-12, -13, -14, -7],
+            [-13, -14, -15, -12],
+            [-14, -15, -16, -17],
+        ]
+    )
+
+    assert np.all(nw._gapB_matrix == [
+            [-10, -11, -12, -13],
+            [-np.inf, -12, -13, -14],
+            [-np.inf, -6, -14, -15],
+            [-np.inf, -7, -7, -16],
+            [-np.inf, -8, -8, -6],
+        ]
+    )
 def test_nw_backtrace():
     """
     TODO: Write your unit test for NW backtracing
