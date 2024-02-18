@@ -63,7 +63,7 @@ def test_nw_backtrace():
     nw = NeedlemanWunsch("./substitution_matrices/BLOSUM62.mat", -10.0, -1.0)
     score, s3_s4_align, s4_s3_align = nw.align(seq3, seq4)
     
-    assert score = 17
+    assert score == 17
 
 
 
