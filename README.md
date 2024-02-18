@@ -1,4 +1,4 @@
-![](https://github.com/dgomezsiu/HW5-NW/workflows/NW/badge.svg)
+![](https://github.com/dgomezsiu/HW5-NW/workflows/HW5-NW/badge.svg)
 
 # Project 5
 Needleman Wunsch Algorithm
