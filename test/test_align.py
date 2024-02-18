@@ -40,7 +40,7 @@ def test_nw_alignment():
         [-13, -7, -7, -12, -17]
         ])
 
-    assert np.all(nw._align_matrix == [
+    assert np.all(nw._gapB_matrix == [
         [0, -11, -12, -13, -14],
         [-np.inf, -np.inf, -6, -7, -8],
         [-np.inf, -np.inf, -22, -7, -8],
